@@ -3,10 +3,6 @@
 make BUILD_TLS=yes
 make PREFIX=$PREFIX install
 
-if [[ "$target_platform" == osx* ]]; then
-  make test
-fi
-
 mkdir -p "${PREFIX}/etc"
 
 mkdir -p "${PREFIX}/var/run/redis"
