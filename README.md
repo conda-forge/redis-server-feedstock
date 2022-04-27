@@ -5,7 +5,7 @@ Home: https://redis.io/
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/redis-server-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/redis-server-feedstock/blob/main/LICENSE.txt)
 
 Summary: Advanced key-value cache and store
 
@@ -29,8 +29,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=master">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -38,29 +38,29 @@ Current build status
           <tbody><tr>
               <td>linux_64_openssl1.1.1</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=master&jobName=linux&configuration=linux_64_openssl1.1.1" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=linux&configuration=linux_64_openssl1.1.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_openssl3</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=master&jobName=linux&configuration=linux_64_openssl3" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=linux&configuration=linux_64_openssl3" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_openssl1.1.1</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=master&jobName=osx&configuration=osx_64_openssl1.1.1" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=osx&configuration=osx_64_openssl1.1.1" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_openssl3</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=master&jobName=osx&configuration=osx_64_openssl3" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=osx&configuration=osx_64_openssl3" alt="variant">
                 </a>
               </td>
             </tr>
@@ -88,23 +88,49 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `redis-server` can be installed with:
+Once the `conda-forge` channel has been enabled, `redis-server` can be installed with `conda`:
 
 ```
 conda install redis-server
 ```
 
-It is possible to list all of the versions of `redis-server` available on your platform with:
+or with `mamba`:
+
+```
+mamba install redis-server
+```
+
+It is possible to list all of the versions of `redis-server` available on your platform with `conda`:
 
 ```
 conda search redis-server --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search redis-server --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search redis-server --channel conda-forge
+
+# List packages depending on `redis-server`:
+mamba repoquery whoneeds redis-server --channel conda-forge
+
+# List dependencies of `redis-server`:
+mamba repoquery depends redis-server --channel conda-forge
 ```
 
 
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -114,10 +140,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
