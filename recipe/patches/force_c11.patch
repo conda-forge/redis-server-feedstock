@@ -1,11 +1,14 @@
 diff --git a/src/Makefile b/src/Makefile
---- a/src/Makefile	(revision db09f6eb2e70ae0661a0cd9ad9b58b9b566311a9)
-+++ b/src/Makefile	(date 1631795654521)
-@@ -35,14 +35,7 @@
+--- a/src/Makefile	(revision 89772ed827209c3dca376644498a235ef3edf692)
++++ b/src/Makefile	(date 1651078795736)
+@@ -34,17 +34,7 @@
+ WARN=-Wall -W -Wno-missing-field-initializers
  OPT=$(OPTIMIZATION)
-
- # Detect if the compiler supports C11 _Atomic
--C11_ATOMIC := $(shell sh -c 'echo "\#include <stdatomic.h>" > foo.c; \
+ 
+-# Detect if the compiler supports C11 _Atomic.
+-# NUMBER_SIGN_CHAR is a workaround to support both GNU Make 4.3 and older versions.
+-NUMBER_SIGN_CHAR := \#
+-C11_ATOMIC := $(shell sh -c 'echo "$(NUMBER_SIGN_CHAR)include <stdatomic.h>" > foo.c; \
 -	$(CC) -std=c11 -c foo.c -o foo.o > /dev/null 2>&1; \
 -	if [ -f foo.o ]; then echo "yes"; rm foo.o; fi; rm foo.c')
 -ifeq ($(C11_ATOMIC),yes)
@@ -14,6 +17,6 @@ diff --git a/src/Makefile b/src/Makefile
 -	STD+=-std=c99
 -endif
 +STD+=-std=c11
-
+ 
  PREFIX?=/usr/local
  INSTALL_BIN=$(PREFIX)/bin
