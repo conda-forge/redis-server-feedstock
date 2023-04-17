@@ -1,5 +1,5 @@
 {% set name = "redis-server" %}
-{% set version = "7.0.9" %}
+{% set version = "7.0.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 535c41ba0e17004fab2394e30567a3c6b8cd541bb2b76ff67d2f16e6178d2f4d
+  sha256: 7f1941bfa7fa01e2fd167771ff22b8e46b1a6bb0707f01b3e6308d9770e44bf3
   patches:
     - patches/force_c11.patch  # [osx]
 
