@@ -31,7 +31,7 @@ test:
 about:
   home: https://redis.io/
   license: SSPL-1.0 OR LicenseRef-RSALv2
-  license_file: LICENSE.txt
+  license_file: COPYING
   summary: Advanced key-value cache and store
   description: |
     Redis is an in-memory database that persists on disk. The data model
