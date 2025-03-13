@@ -54,7 +54,7 @@ fi
 ( endgroup "Configuring conda" ) 2> /dev/null
 
 if [[ -f "${FEEDSTOCK_ROOT}/LICENSE.txt" ]]; then
-  cp "${FEEDSTOCK_ROOT}/LICENSE.txt" "${RECIPE_ROOT}/recipe-scripts-license.txt"
+  cp "${FEEDSTOCK_ROOT}/LICENSE.txt" "${RECIPE_ROOT}/LICENSE.txt"
 fi
 
 if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
