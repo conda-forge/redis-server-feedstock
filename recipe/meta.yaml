@@ -1,5 +1,5 @@
 {% set name = "redis-server" %}
-{% set version = "7.4.0" %}
+{% set version = "8.0-m04" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 74effebe3d0e3ac582f5248492c13e7ca4918949b58b45873d37fc870a4b1fc6
+  sha256: 6902a938c629a33f14d49881b1b60e6621c29e445554f882ce7ec48f2743d516
 
 build:
   skip: true  # [win]
