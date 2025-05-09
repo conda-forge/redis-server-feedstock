@@ -16,8 +16,11 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('rust') }}
     - {{ stdlib("c") }}
     - make
+    - pkg-config
   host:
     - openssl
   run:
