@@ -22,10 +22,10 @@ requirements:
     - cmake
     - make
     - pkg-config
-    - libuv
   host:
     - openssl
     - libuv
+    - boost-cpp
   run:
     - openssl
 
