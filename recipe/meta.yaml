@@ -25,6 +25,7 @@ requirements:
     - libuv
   host:
     - openssl
+    - libuv
   run:
     - openssl
 
