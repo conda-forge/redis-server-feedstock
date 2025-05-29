@@ -1,5 +1,5 @@
 {% set name = "redis-server" %}
-{% set version = "8.0.0" %}
+{% set version = "8.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6d1b428d289426b68cff933d61f2d5c0a44a316f17236c51fbb33bc9e5c5a385
+  sha256: caf3c0069f06fc84c5153bd2a348b204c578de80490c73857bee01d9b5d7401f
 
 build:
   skip: true  # [win]
@@ -25,7 +25,7 @@ requirements:
   host:
     - openssl
     - libuv
-    - boost-cpp
+    - libboost-devel
   run:
     - openssl
 
