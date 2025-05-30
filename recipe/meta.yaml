@@ -23,10 +23,12 @@ requirements:
     - make
     - pkg-config
     - openssl
+    - clang
   host:
     - openssl
     - libuv
     - libboost-devel
+    - clang
   run:
     - openssl
 
