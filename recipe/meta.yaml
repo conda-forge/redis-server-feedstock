@@ -22,6 +22,7 @@ requirements:
     - cmake
     - make
     - pkg-config
+    - openssl
   host:
     - openssl
     - libuv
