@@ -1,7 +1,6 @@
 #!/bin/bash
 
-make BUILD_TLS=yes BUILD_WITH_MODULES=yes
-make PREFIX=$PREFIX install
+make PREFIX=$PREFIX BUILD_TLS=yes BUILD_WITH_MODULES=yes install
 
 mkdir -p "${PREFIX}/etc"
 
