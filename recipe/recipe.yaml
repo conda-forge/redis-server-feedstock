@@ -28,11 +28,12 @@ requirements:
     - make
     - cmake
     - pkg-config
-    - clang-tools
   host:
     - openssl
     - libboost-devel
     - libxcrypt
+    - libclang
+
   run:
     - openssl
 
