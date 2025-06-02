@@ -25,16 +25,11 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ compiler('rust') }}
     - ${{ stdlib("c") }}
-    - cmake
     - make
+    - cmake
     - pkg-config
-    - openssl
-    - clang
   host:
     - openssl
-    - libuv
-    - libboost-devel
-    - clang
   run:
     - openssl
 
