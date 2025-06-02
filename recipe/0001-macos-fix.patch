@@ -1,0 +1,34 @@
+From d3da9ac8cf4ca93c51a9e9c5fc95317cab387896 Mon Sep 17 00:00:00 2001
+From: Bela Stoyan <git@be7a.de>
+Date: Mon, 2 Jun 2025 18:59:16 +0200
+Subject: [PATCH] macos fix
+
+---
+ modules/common.mk | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/modules/common.mk b/modules/common.mk
+index 7e6a97546..89e28df80 100644
+--- a/modules/common.mk
++++ b/modules/common.mk
+@@ -12,6 +12,9 @@ ARCH_MAP_aarch64 := arm64v8
+ ARCH_MAP_arm64 := arm64v8
+ 
+ OS := $(shell uname -s | tr '[:upper:]' '[:lower:]')
++ifeq ($(OS),darwin)
++	OS := macos
++endif
+ ARCH := $(ARCH_MAP_$(shell uname -m))
+ ifeq ($(ARCH),)
+ 	$(error Unrecognized CPU architecture $(shell uname -m))
+@@ -46,6 +49,6 @@ pristine:
+ 
+ install: $(TARGET_MODULE)
+ 	mkdir -p $(INSTALL_DIR)
+-	$(INSTALL) -m 0755 -D $(TARGET_MODULE) $(INSTALL_DIR)
++	$(INSTALL) -m 0755 $(TARGET_MODULE) $(INSTALL_DIR)
+ 
+ .PHONY: all clean distclean pristine install
+-- 
+2.39.5 (Apple Git-154)
+

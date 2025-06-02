@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# When Redis-Stack modules are built the “readies” make-helper invokes
+# cmake $(CMAKE_FLAGS) …
+# (see deps/readies/mk/cmake.rules). 
+# All items in $(CMAKE_FLAGS) are passed to the shell unquoted.
+# the un-escaped semicolon in -DCMAKE_PROGRAM_PATH is interpreted by the shell as a command-separator
+# thus we drop the second ${PREFIX}/bin
+export CMAKE_ARGS=$(echo "$CMAKE_ARGS" | sed "s@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin;${PREFIX}/bin@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin@")
+
 make PREFIX=$PREFIX BUILD_TLS=yes BUILD_WITH_MODULES=yes install
 
 mkdir -p "${PREFIX}/etc"

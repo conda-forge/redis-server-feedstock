@@ -11,6 +11,9 @@ package:
 source:
   url: https://github.com/redis/redis/archive/refs/tags/${{ version }}.tar.gz
   sha256: caf3c0069f06fc84c5153bd2a348b204c578de80490c73857bee01d9b5d7401f
+  patches:
+    - if: osx
+      then: "0001-macos-fix.patch"
 
 build:
   number: 0
