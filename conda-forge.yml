@@ -3,7 +3,7 @@ github:
   branch_name: main
   tooling_branch_name: main
 conda_build:
-  pkg_format: '2'
+  pkg_format: "2"
 build_platform:
   osx_arm64: osx_64
   linux_aarch64: linux_64
@@ -11,3 +11,5 @@ build_platform:
 test: native_and_emulated
 bot:
   automerge: true
+conda_install_tool: pixi
+conda_build_tool: rattler-build

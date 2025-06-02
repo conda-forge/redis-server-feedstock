@@ -17,7 +17,6 @@ Redis is an in-memory database that persists on disk. The data model
 is key-value, but many different kind of values are supported: Strings,
 Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
 
-
 Current build status
 ====================
 
@@ -199,6 +198,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@0xbe7a](https://github.com/0xbe7a/)
 * [@SimonBoothroyd](https://github.com/SimonBoothroyd/)
 * [@xhochy](https://github.com/xhochy/)
 

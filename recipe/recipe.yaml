@@ -1,24 +1,27 @@
-{% set name = "redis-server" %}
-{% set version = "8.0.2" %}
+schema_version: 1
+
+context:
+  name: redis-server
+  version: 8.0.2
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
+  url: https://github.com/redis/redis/archive/refs/tags/${{ version }}.tar.gz
   sha256: caf3c0069f06fc84c5153bd2a348b204c578de80490c73857bee01d9b5d7401f
 
 build:
-  skip: true  # [win]
   number: 0
+  skip: win
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('rust') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ compiler('rust') }}
+    - ${{ stdlib("c") }}
     - cmake
     - make
     - pkg-config
@@ -32,13 +35,12 @@ requirements:
   run:
     - openssl
 
-test:
-  commands:
-    - redis-cli --version
-    - redis-server --version
+tests:
+  - script:
+      - redis-cli --version
+      - redis-server --version
 
 about:
-  home: https://redis.io/
   license: SSPL-1.0 OR LicenseRef-RSALv2
   license_file: LICENSE.txt
   summary: Advanced key-value cache and store
@@ -46,10 +48,12 @@ about:
     Redis is an in-memory database that persists on disk. The data model
     is key-value, but many different kind of values are supported: Strings,
     Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
-  doc_url: https://redis.io/
-  dev_url: https://github.com/redis/redis
+  homepage: https://redis.io/
+  repository: https://github.com/redis/redis
+  documentation: https://redis.io/
 
 extra:
   recipe-maintainers:
     - xhochy
     - SimonBoothroyd
+    - "0xbe7a"
