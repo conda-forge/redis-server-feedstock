@@ -26,13 +26,14 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ stdlib("c") }}
     - make
-    - cmake
+    - cmake >=3,<4
     - pkg-config
+    - clang
   host:
     - openssl
     - libboost-devel
     - libxcrypt
-    - libclang
+    - clang
 
   run:
     - openssl
