@@ -12,6 +12,8 @@ export CMAKE_ARGS=$(echo "$CMAKE_ARGS" \
   | sed "s@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin;${PREFIX}/bin@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin@" \
   | sed -E 's@-DCMAKE_FIND_ROOT_PATH=([^;]*);([^ ]*)@-DCMAKE_FIND_ROOT_PATH=\1\\;\2@g')
 
+export CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+
 make PREFIX=$PREFIX BUILD_TLS=yes BUILD_WITH_MODULES=yes install
 
 mkdir -p "${PREFIX}/etc"
