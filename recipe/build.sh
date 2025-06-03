@@ -16,6 +16,9 @@ export CMAKE_ARGS=$(echo "$CMAKE_ARGS" \
 export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
 export LIBCLANG_PATH=$BUILD_PREFIX/lib/libclang${SHLIB_EXT}
 
+# redis-json sets up a CARGO_BUILD_TARGET that conflicts with the build_target as this messes with the output dir structure
+unset CARGO_BUILD_TARGET
+
 env
 
 
