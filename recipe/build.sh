@@ -12,6 +12,11 @@ export CMAKE_ARGS=$(echo "$CMAKE_ARGS" \
   | sed "s@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin;${PREFIX}/bin@-DCMAKE_PROGRAM_PATH=${BUILD_PREFIX}/bin@" \
   | sed -E 's@-DCMAKE_FIND_ROOT_PATH=([^;]*);([^ ]*)@-DCMAKE_FIND_ROOT_PATH=\1\\;\2@g')
 
+
+export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
+export LIBCLANG_PATH=$BUILD_PREFIX/lib/libclang${SHLIB_EXT}
+
+
 make PREFIX=$PREFIX BUILD_TLS=yes BUILD_WITH_MODULES=yes install
 
 mkdir -p "${PREFIX}/etc"

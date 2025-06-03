@@ -28,12 +28,15 @@ requirements:
     - make
     - cmake >=3,<4
     - pkg-config
-    - clang
+    - if: unix
+      then:
+        - clang
+        - libclang
+        - clangdev
   host:
     - openssl
     - libboost-devel
     - libxcrypt
-    - clang
 
   run:
     - openssl
