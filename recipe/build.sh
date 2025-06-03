@@ -16,6 +16,8 @@ export CMAKE_ARGS=$(echo "$CMAKE_ARGS" \
 export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
 export LIBCLANG_PATH=$BUILD_PREFIX/lib/libclang${SHLIB_EXT}
 
+env
+
 
 make PREFIX=$PREFIX BUILD_TLS=yes BUILD_WITH_MODULES=yes install
 
