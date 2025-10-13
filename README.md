@@ -200,5 +200,6 @@ Feedstock Maintainers
 =====================
 
 * [@SimonBoothroyd](https://github.com/SimonBoothroyd/)
+* [@wuillaum](https://github.com/wuillaum/)
 * [@xhochy](https://github.com/xhochy/)
 
