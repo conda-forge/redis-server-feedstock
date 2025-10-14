@@ -1,5 +1,5 @@
 {% set name = "redis-server" %}
-{% set version = "7.2.8" %}
+{% set version = "7.2.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 66edcb676acf0f611e1cd8d69aa294c0256cb1658094c73bad529d1546eb89ac
+  sha256: 95f9d5c0d44e1f21599a300f6a950fc9d128dfb12066e92886da9cd67c299d7b
 
 build:
   skip: true  # [win]
@@ -44,3 +44,4 @@ extra:
   recipe-maintainers:
     - xhochy
     - SimonBoothroyd
+    - wuillaum
