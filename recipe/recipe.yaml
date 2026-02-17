@@ -1,35 +1,36 @@
-{% set name = "redis-server" %}
-{% set version = "8.6.0" %}
+schema_version: 1
+
+context:
+  name: redis-server
+  version: 8.6.0
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/redis/redis/archive/refs/tags/{{ version }}.tar.gz
+  url: https://github.com/redis/redis/archive/refs/tags/${{ version }}.tar.gz
   sha256: 74261ece988fd2e1526e5aea9f8b9853217d71e2ef2dafaa624ed9579b5f4317
 
 build:
-  skip: true  # [win]
   number: 0
+  skip: win
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
     - make
   host:
-    - openssl
-  run:
+    - jemalloc
     - openssl
 
-test:
-  commands:
-    - redis-cli --version
-    - redis-server --version
+tests:
+  - script:
+      - redis-cli --version
+      - redis-server --version
 
 about:
-  home: https://redis.io/
   license: SSPL-1.0 OR LicenseRef-RSALv2
   license_file: LICENSE.txt
   summary: Advanced key-value cache and store
@@ -37,8 +38,9 @@ about:
     Redis is an in-memory database that persists on disk. The data model
     is key-value, but many different kind of values are supported: Strings,
     Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
-  doc_url: https://redis.io/
-  dev_url: https://github.com/redis/redis
+  homepage: https://redis.io/
+  repository: https://github.com/redis/redis
+  documentation: https://redis.io/
 
 extra:
   recipe-maintainers:
