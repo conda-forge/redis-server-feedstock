@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LD="${CC}"
+
 make BUILD_TLS=yes
 make PREFIX=$PREFIX install
 

@@ -20,6 +20,7 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
+    - pkg-config
     - make
   host:
     - jemalloc
