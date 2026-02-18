@@ -1,6 +1,8 @@
 #!/bin/bash
 
-make BUILD_TLS=yes
+export LD="${CC}"
+
+make BUILD_TLS=yes CC="${CC}" CXX="${CXX}" LD="${CC}"
 make PREFIX=$PREFIX install
 
 mkdir -p "${PREFIX}/etc"
