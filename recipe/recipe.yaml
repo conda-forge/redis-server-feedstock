@@ -20,6 +20,7 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
+    - ${{ stdlib("cxx") }}
     - pkg-config
     - make
   host:
