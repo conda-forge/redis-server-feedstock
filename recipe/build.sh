@@ -2,7 +2,7 @@
 
 export LD="${CC}"
 
-make BUILD_TLS=yes CC="${CC}" CXX="${CXX}"
+make BUILD_TLS=yes CC="${CC}" CXX="${CXX}" LD="${CC}"
 make PREFIX=$PREFIX install
 
 mkdir -p "${PREFIX}/etc"
