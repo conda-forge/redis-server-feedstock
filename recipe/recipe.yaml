@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: redis-server
-  version: "8.6.2"
+  version: "8.8.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/redis/redis/archive/refs/tags/${{ version }}.tar.gz
-  sha256: cef021615ec4aef355a824cf933702be5def36e37ca1e9b99ab1cc5599f1748f
+  sha256: 19736ce6117d90b3df032504c6e5c1ce41667ae47f073281b40d2f274c200a74
 
 build:
   number: 0
