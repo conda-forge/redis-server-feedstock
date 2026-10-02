@@ -17,7 +17,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64:alma10
 libboost_headers:
-- '1.88'
+- '1.90'
 openssl:
 - '3.5'
 rust_compiler:
