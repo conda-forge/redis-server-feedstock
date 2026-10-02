@@ -9,11 +9,11 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/redis/redis/archive/refs/tags/${{ version }}.tar.gz
-  sha256: b0f0cf1927b6ff8d5a523eb7f97c5bcaafbfbef96ffa23f643494bd4af527eee
+  url: https://github.com/redis/redis/releases/download/${{ version }}/redis-full.tar.gz
+  sha256: e5cae2686231290bf55ae5cc4da01e646c3424233cae7618ebf3a64250ef1583
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
@@ -23,18 +23,43 @@ requirements:
     - ${{ compiler("cxx") }}
     - pkg-config
     - make
+    # for built-in modules
+    - cmake
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+    # redisearch's src/CMakeLists.txt runs gen_command_info.py; readies' mk/main additionally
+    # gates the whole Makefile on `python3 -m pip --version`, so pip (not just python) is needed
+    - pip
+    # redistimeseries' bundled libevent ships no configure; its autogen.sh needs autoreconf
+    - autoconf
+    - automake
+    - libtool
+    # bindgen needs both libclang.so and clang's builtin headers, at one major version
+    - clang
+    - libclang
   host:
     - jemalloc
     - openssl
+    # redisearch's src/geometry and src/util/hash both do find_package(Boost REQUIRED); header-only parts only
+    - libboost-headers
 
 tests:
   - script:
       - redis-cli --version
       - redis-server --version
+  - package_contents:
+      files:
+        - lib/redis/modules/redisbloom.so
+        - lib/redis/modules/redisearch.so
+        - lib/redis/modules/redistimeseries.so
+        - lib/redis/modules/rejson.so
 
 about:
-  license: SSPL-1.0 OR LicenseRef-RSALv2
-  license_file: LICENSE.txt
+  license: SSPL-1.0 OR LicenseRef-RSALv2 OR AGPL-3.0-only
+  license_file:
+    - LICENSE.txt
+    - THIRDPARTY-redisjson.yml
+    - THIRDPARTY-redisearch.yml
   summary: Advanced key-value cache and store
   description: |
     Redis is an in-memory database that persists on disk. The data model
@@ -48,3 +73,4 @@ extra:
   recipe-maintainers:
     - xhochy
     - SimonBoothroyd
+    - XhstormR

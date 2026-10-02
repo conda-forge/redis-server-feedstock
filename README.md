@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/redis-server-fe
 
 Home: https://redis.io/
 
-Package license: SSPL-1.0 OR LicenseRef-RSALv2
+Package license: SSPL-1.0 OR LicenseRef-RSALv2 OR AGPL-3.0-only
 
 Summary: Advanced key-value cache and store
 
@@ -46,6 +46,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13989&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/redis-server-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -222,5 +229,6 @@ Feedstock Maintainers
 =====================
 
 * [@SimonBoothroyd](https://github.com/SimonBoothroyd/)
+* [@XhstormR](https://github.com/XhstormR/)
 * [@xhochy](https://github.com/xhochy/)
 
