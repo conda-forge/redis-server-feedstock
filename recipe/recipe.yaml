@@ -13,7 +13,7 @@ source:
   sha256: ae6973de9b6ad8e6cf21b1e764abccab59200689af6aabce10d4cf6bbb2e253f
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
@@ -38,7 +38,6 @@ requirements:
     - clang
     - libclang
   host:
-    - jemalloc
     - openssl
     # redisearch's src/geometry and src/util/hash both do find_package(Boost REQUIRED); header-only parts only
     - libboost-headers
@@ -47,6 +46,7 @@ tests:
   - script:
       - redis-cli --version
       - redis-server --version
+      - (redis-server "${PREFIX}/etc/redis.conf" --port 0 || true) | tee redis.log; grep -q "to not listen anywhere" redis.log
   - package_contents:
       files:
         - lib/redis/modules/redisbloom.so
