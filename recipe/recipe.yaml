@@ -21,7 +21,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler("cxx") }}
-    - pkg-config
     - make
     # for built-in modules
     - cmake
