@@ -12,7 +12,7 @@ export openssl_prefix="${PREFIX}" OPENSSL_PREFIX="${PREFIX}"
 
 # ─── redisearch (search) ────────────────────────────────────────────────────
 export IGNORE_MISSING_DEPS=1
-export CMAKE_ARGS="${CMAKE_ARGS:-} -DCMAKE_C_COMPILER=${CC} -DCMAKE_CXX_COMPILER=${CXX} -DBOOST_DIR=${PREFIX} -DBoost_INCLUDE_DIR=${PREFIX}/include"
+export CMAKE_ARGS="${CMAKE_ARGS:-} -DCMAKE_C_COMPILER=${CC} -DCMAKE_CXX_COMPILER=${CXX} -DBOOST_DIR=${PREFIX} -DBoost_INCLUDE_DIR=${PREFIX}/include -DOPENSSL_ROOT_DIR=${PREFIX}"
 if [[ "${target_platform}" == osx-* ]]; then
   mkdir -p "${PWD}/.libtool-shim"
   ln -sf "${BUILD_PREFIX}/bin/${LIBTOOL}" "${PWD}/.libtool-shim/libtool"
