@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: redis-server
-  version: "8.10.2"
+  version: "8.10.3"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/redis/redis/releases/download/${{ version }}/redis-full.tar.gz
-  sha256: ae6973de9b6ad8e6cf21b1e764abccab59200689af6aabce10d4cf6bbb2e253f
+  sha256: 5e0c00ed77f789fb1a4a30f1fbb58a793cc88c41c0f11f0e38e1b4f192991188
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
